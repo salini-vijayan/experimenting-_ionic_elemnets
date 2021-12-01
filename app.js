@@ -62,7 +62,7 @@ so that this will be executed dynamically when this click occurs. */
     const courseRating = document.querySelector("#course-rating");
     const confirmBtn = document.querySelector("#btn-confirm");
     const courseList = document.querySelector("#course-list");
-    const alertCtrl = document.querySelector("#alert");
+    const alertCtrl = document.querySelector("#alert-course");
 
     confirmBtn.addEventListener("click", () => {
       const enteredCourse = courseName.value;
