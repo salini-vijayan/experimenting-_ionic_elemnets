@@ -1,3 +1,4 @@
+// Budget Planner
 const reasonInput = document.querySelector("#input-reason");
 const amountInput = document.querySelector("#input-amount");
 const cancelBtn = document.querySelector("#btn-cancel");
@@ -54,3 +55,38 @@ cancelBtn.addEventListener('click',clear);
 /* clear without parantheses becoz i don't want to execute it immedialtely.
 Instead just pass a reference of the function to the eventlistener,
 so that this will be executed dynamically when this click occurs. */
+
+
+// Couses
+    const courseName = document.querySelector("#course-name");
+    const courseRating = document.querySelector("#course-rating");
+    const confirmBtn = document.querySelector("#btn-confirm");
+    const courseList = document.querySelector("#course-list");
+    const alertCtrl = document.querySelector("#alert");
+
+    confirmBtn.addEventListener("click", () => {
+      const enteredCourse = courseName.value;
+      const enteredRating = courseRating.value;
+
+      if (
+        enteredCourse.trim().length <= 0 ||
+        enteredRating < 1 ||
+        enteredRating > 5 ||
+        enteredRating.trim().length <= 0
+      ) {
+        const alert = document.createElement("ion-alert");
+        alert.header = "Invalid Input";
+        alert.message = "Please enter a valid course name and rating!";
+        alert.buttons = ["Okay"];
+        alertCtrl.appendChild(alert);
+        alert.present();
+        return;
+      }
+      const newItem = document.createElement("ion-item");
+      newItem.innerHTML = `<strong>${enteredCourse} - </strong> ${enteredRating}`
+      courseList.appendChild(newItem);
+      
+      courseName.value = "";
+      courseRating.value = "";
+
+    });
