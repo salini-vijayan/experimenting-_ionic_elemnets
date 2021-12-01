@@ -4,6 +4,7 @@ const cancelBtn = document.querySelector("#btn-cancel");
 const confirmBtn = document.querySelector("#btn-confirm");
 const expensesLists = document.querySelector("#expenses-list");
 const totalExpenseOutput = document.querySelector('#total-expense');
+const alertCtrl = document.querySelector('#alert');
 
 let totalExpense = 0;
 
@@ -25,7 +26,18 @@ confirmBtn.addEventListener("click", () => {
     enteredAmount <= 0 ||
     enteredAmount.trim().length <= 0
   ) {
+    /* Create the alert, 
+    create is a promise function, which will fulfill when the creation is completed.
+    to display the alert we use the then fn's created element */
+    const alertCtrlIon = document.createElement('ion-alert');
+
+    alertCtrlIon.message = 'Please enter a valid reason and amount!';
+    alertCtrlIon.header = 'Invalid Inputs';
+    alertCtrlIon.buttons = ['Okay'];
+    alertCtrl.appendChild(alertCtrlIon);
+    alertCtrlIon.present();
     return;
+
   }
   // document.createElement a default DOM API
   const newItem = document.createElement('ion-item');
